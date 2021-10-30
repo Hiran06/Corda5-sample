@@ -1,0 +1,26 @@
+pluginManagement {
+    repositories {
+        maven {
+            url "$artifactoryContextUrl/corda-dev"
+            content {
+                includeGroupByRegex 'net\\.corda\\.plugins(\\..*)?'
+            }
+        }
+        maven {
+            url "$artifactoryContextUrl/corda-releases"
+            content {
+                includeGroupByRegex 'net\\.corda\\.plugins(\\..*)?'
+            }
+        }
+        gradlePluginPortal()
+    }
+
+    plugins {
+        id 'net.corda.plugins.cordapp-cpk' version gradlePluginsVersion
+        id 'org.jetbrains.kotlin.jvm' version kotlinVersion
+    }
+}
+
+rootProject.name = 'corda5-iou-sample'
+include('contracts')
+include('workflows')

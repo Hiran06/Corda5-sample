@@ -1,0 +1,6 @@
+nodes:
+  alice:
+    debug: true
+  bob:
+  notary:
+    notary: true

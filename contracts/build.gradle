@@ -1,0 +1,29 @@
+plugins {
+    id 'net.corda.plugins.cordapp-cpk'
+}
+
+cordapp {
+    // huh ?
+    targetPlatformVersion 1000
+    minimumPlatformVersion 1
+    contract {
+        name "Corda5 IOU sample - Contracts"
+        versionId 1
+        vendor "R3"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    cordaProvided "net.corda:corda-application:$cordaAPIVersion"
+    cordaProvided "net.corda:corda-ledger:$cordaAPIVersion"
+
+//    cordaProvided "javax.persistence:javax.persistence-api:$persistenceApiVersion"
+//    cordaProvided "org.hibernate:hibernate-core:$hibernateVersion"
+}
+
+jar {
+    archiveBaseName = 'corda5-sample-iou-contracts'
+}
